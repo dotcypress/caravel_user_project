@@ -1,1 +1,6 @@
 checks/
+target/
+project/**
+!project/build.properties
+.bloop
+.metals

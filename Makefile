@@ -128,6 +128,10 @@ else
 	rm -rf $(CARAVEL_ROOT)
 endif
 
+.PHONY: elaborate
+elaborate: 
+	sbt --supershell=never "runMain caravel.Elaborate"
+
 # Install Openlane
 .PHONY: openlane
 openlane: 
