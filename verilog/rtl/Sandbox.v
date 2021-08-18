@@ -1,12 +1,11 @@
 // Generator : SpinalHDL v1.6.0    git head : 73c8d8e2b86b45646e9d0b2e729291f2b65e6be3
 // Component : Sandbox
-// Git hash  : 070f9a349950af9f0ae98ac5324ae90a4b782701
+// Git hash  : 392b5b6c1d63a138952b99b249ff6cda04a16e5e
 
 
 
 module Sandbox (
   input               io_clk2,
-  output     [2:0]    io_irq,
   input               io_bus_CYC,
   input               io_bus_STB,
   output              io_bus_ACK,
@@ -22,6 +21,7 @@ module Sandbox (
   output     [127:0]  io_logicAnalyzer_read,
   input      [127:0]  io_logicAnalyzer_write,
   input               io_logicAnalyzer_writeEnable,
+  output     [2:0]    io_irq,
   input               clk,
   input               reset
 );
@@ -36,10 +36,10 @@ module Sandbox (
   assign _zz__zz_io_logicAnalyzer_read_1_1 = _zz_io_logicAnalyzer_read;
   assign _zz__zz_io_logicAnalyzer_read_1 = {15'd0, _zz__zz_io_logicAnalyzer_read_1_1};
   assign _zz_io_logicAnalyzer_read_3 = _zz_io_logicAnalyzer_read_2;
-  assign io_irq = 3'b000;
   assign io_bus_DAT_MISO = 32'h0;
   assign io_bus_ACK = 1'b0;
-  assign io_gpio_writeEnable = 1'b0;
+  assign io_irq = 3'b000;
+  assign io_gpio_writeEnable = 1'b1;
   assign io_gpio_write = 38'h0;
   assign when_Utils_l357 = 1'b1;
   always @(*) begin
