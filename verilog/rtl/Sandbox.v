@@ -1,6 +1,6 @@
 // Generator : SpinalHDL v1.6.0    git head : 73c8d8e2b86b45646e9d0b2e729291f2b65e6be3
 // Component : Sandbox
-// Git hash  : 392b5b6c1d63a138952b99b249ff6cda04a16e5e
+// Git hash  : 0fc772d6315cd58c9724bbcb71df470903b43e7c
 
 
 
@@ -28,6 +28,7 @@ module Sandbox (
   wire       [15:0]   _zz__zz_io_logicAnalyzer_read_1;
   wire       [0:0]    _zz__zz_io_logicAnalyzer_read_1_1;
   wire       [15:0]   _zz_io_logicAnalyzer_read_3;
+  wire                _zz_1;
   wire                when_Utils_l357;
   reg                 _zz_io_logicAnalyzer_read;
   reg        [15:0]   _zz_io_logicAnalyzer_read_1;
@@ -36,9 +37,9 @@ module Sandbox (
   assign _zz__zz_io_logicAnalyzer_read_1_1 = _zz_io_logicAnalyzer_read;
   assign _zz__zz_io_logicAnalyzer_read_1 = {15'd0, _zz__zz_io_logicAnalyzer_read_1_1};
   assign _zz_io_logicAnalyzer_read_3 = _zz_io_logicAnalyzer_read_2;
+  assign _zz_1 = (1'b1 && 1'b1);
   assign io_bus_DAT_MISO = 32'h0;
   assign io_bus_ACK = 1'b0;
-  assign io_irq = 3'b000;
   assign io_gpio_writeEnable = 1'b1;
   assign io_gpio_write = 38'h0;
   assign when_Utils_l357 = 1'b1;
@@ -57,11 +58,14 @@ module Sandbox (
   end
 
   assign io_logicAnalyzer_read = {112'd0, _zz_io_logicAnalyzer_read_3};
+  assign io_irq = 3'b000;
   always @(posedge clk or posedge reset) begin
     if(reset) begin
       _zz_io_logicAnalyzer_read_2 <= 16'h0;
     end else begin
-      _zz_io_logicAnalyzer_read_2 <= _zz_io_logicAnalyzer_read_1;
+      if(_zz_1) begin
+        _zz_io_logicAnalyzer_read_2 <= _zz_io_logicAnalyzer_read_1;
+      end
     end
   end
 

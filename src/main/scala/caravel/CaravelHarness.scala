@@ -15,9 +15,10 @@ class CaravelHarness(
   val analog = inout(Analog(Bits((gpioPads - 9) bits)))
   val gpio = master(TriState(Bits(gpioPads bits)))
   val logicAnalyzer = slave(TriState(Bits(128 bits)))
-  val irq = out(Bits(3 bit))
-
+  val irq = out(Bits(3 bits))
   val active = if (sharedHarness) in(Bool) else null
+
+  def isActive = if (sharedHarness) active else True
 }
 
 object Elaborate {
